@@ -48,3 +48,11 @@ The following packages were 更新済:
   com.unity.2d.animation をバージョン 5.0.10 から 5.1.0 へ
   com.unity.2d.psdimporter をバージョン 4.1.3 から 4.2.0 へ
   com.unity.2d.spriteshape をバージョン 5.1.7 から 5.2.0 へ
+
+=== Sun Apr 17 15:50:35 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were 更新済:
+  com.unity.collab-proxy をバージョン 1.15.7 から 1.15.12 へ
