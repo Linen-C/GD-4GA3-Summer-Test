@@ -5,14 +5,21 @@ using UnityEngine;
 public class attackSELF : MonoBehaviour
 {
 
-    // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 1.0f);
     }
 
-    // Update is called once per frame
     void Update()
     {
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // プレイヤーを除外して判定
+        if (other.gameObject.tag == "Player") { return; }
+
+        // 命中判定
+        Debug.Log("攻撃：「" + other.gameObject.name + "」に命中！");
     }
 }

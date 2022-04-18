@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerRAY : MonoBehaviour
 {
+    public PlayerCTRL playerctrl;
+    public GameObject attackObject;
+    public GameObject cursor;
+
     private float rotZ = 0;
 
     // Start
@@ -30,12 +34,15 @@ public class PlayerRAY : MonoBehaviour
         
         // ‰ñ“]‚É‘ã“ü
         transform.rotation = Quaternion.FromToRotation(Vector3.up, diff);
+
+        if(playerctrl.Attack())
+        {
+            Trail();
+        }
     }
 
     void TestRot()
     {
-
-
         if (Input.GetKey(KeyCode.J))
         {
             rotZ += 0.5f;
@@ -46,5 +53,15 @@ public class PlayerRAY : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
+    }
+
+    void Trail()
+    {
+        //attackObject
+        GameObject attack =
+        (GameObject)Instantiate(
+            attackObject,
+            new Vector3(cursor.transform.position.x, cursor.transform.position.y, 0),
+            transform.rotation);
     }
 }
