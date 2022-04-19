@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerRAY : MonoBehaviour
 {
-    public PlayerCTRL playerctrl;
+    public PlayerCTRL playerCtrl;
     public GameObject attackObject;
     public GameObject cursor;
 
@@ -35,7 +35,7 @@ public class PlayerRAY : MonoBehaviour
         // ‰ñ“]‚É‘ã“ü
         transform.rotation = Quaternion.FromToRotation(Vector3.up, diff);
 
-        if(playerctrl.Attack())
+        if(playerCtrl.Attack())
         {
             Trail();
         }

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5764119873721717966}
   - component: {fileID: 7472754142848405631}
-  - component: {fileID: 5741728808213307249}
   - component: {fileID: 4926932940298661577}
+  - component: {fileID: 4351350238574255106}
   m_Layer: 0
   m_Name: tracks
   m_TagString: Attack
@@ -84,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5741728808213307249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4948638798100626936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b042599599625364dac7a64619d619e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &4926932940298661577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,3 +110,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.72, y: 1.21}
   m_EdgeRadius: 0
+--- !u!114 &4351350238574255106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948638798100626936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b042599599625364dac7a64619d619e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

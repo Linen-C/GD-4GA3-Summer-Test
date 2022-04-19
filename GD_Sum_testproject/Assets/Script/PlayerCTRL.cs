@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class PlayerCTRL : MonoBehaviour
 {
-    public float moveSpeed;
-    public int defoAttackTiming;
-    public GameCTRL gamectrl;
-    public Text aTcount;
-    public float attackUItimer;
-    public Text attackUI;
+    public float moveSpeed;    // 移動速度
+    public int defoAttackTiming;    // 攻撃に必要なカウント数
+    public GameCTRL gamectrl;    // ゲームコントローラー
+    public Text atCount;    // カウント数の表示
+    public float attackUItimer;    // UI表示時間
+    public Text attackUI;    // 攻撃・待機状態のUI表示
+    public float defCashTime;   // 先行入力用
 
     private int attackTiming = 0;
     private bool isAttack = false;
     private float attackUiTimeleft = 0;
+    private float cashTime = 0;
 
     Rigidbody2D body;
 
@@ -37,22 +39,38 @@ public class PlayerCTRL : MonoBehaviour
             attackTiming--;
         }
 
-        if (attackTiming == 0 && gamectrl.Metronome())
+        if (Input.GetMouseButtonDown(0))
         {
+            cashTime = defCashTime;
+        }
+        if (cashTime > 0.0f)
+        {
+            cashTime -= Time.deltaTime;
+        }
+
+        if (attackTiming == 0)
+        {
+            if (cashTime > 0.0f)
+            {
+                isAttack = true;
+                attackTiming = defoAttackTiming;
+            }
+            /*
             if (Input.GetKey("space"))
             {
                 attackUI.text = "PAUSE...";
                 return;
             }
-            isAttack = true;
-            attackTiming = defoAttackTiming;
+            */
+            
         }
         else
         {
             isAttack = false;
         }
 
-        aTcount.text = "ATcount:" + attackTiming;
+
+        atCount.text = "atCount:" + attackTiming;
 
 
         if (isAttack)
