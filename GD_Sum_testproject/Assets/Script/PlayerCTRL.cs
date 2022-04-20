@@ -43,6 +43,7 @@ public class PlayerCTRL : MonoBehaviour
         {
             cashTime = defCashTime;
         }
+
         if (cashTime > 0.0f)
         {
             cashTime -= Time.deltaTime;
