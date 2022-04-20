@@ -48,9 +48,9 @@ public class PlayerCTRL : MonoBehaviour
             cashTime -= Time.deltaTime;
         }
 
-        if (attackTiming == 0)
+        if (attackTiming == 0 && cashTime > 0.0f)
         {
-            if (cashTime > 0.0f)
+            if (gamectrl.Metronome())
             {
                 isAttack = true;
                 attackTiming = defoAttackTiming;
@@ -62,7 +62,6 @@ public class PlayerCTRL : MonoBehaviour
                 return;
             }
             */
-            
         }
         else
         {

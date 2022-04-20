@@ -2496,7 +2496,7 @@ MonoBehaviour:
   atCount: {fileID: 1985793261}
   attackUItimer: 1
   attackUI: {fileID: 9388142}
-  defCashTime: 0.02
+  defCashTime: 0.2
 --- !u!70 &1847109799
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
