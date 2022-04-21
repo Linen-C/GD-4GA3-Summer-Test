@@ -12,6 +12,8 @@ public class PlayerCTRL : MonoBehaviour
     public float attackUItimer;    // UI表示時間
     public Text attackUI;    // 攻撃・待機状態のUI表示
     public float defCashTime;   // 先行入力用
+    public bool autoMode;
+    public Text modeText;
 
     private int attackTiming = 0;
     private bool isAttack = false;
@@ -26,6 +28,7 @@ public class PlayerCTRL : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         attackTiming = defoAttackTiming;
         attackUiTimeleft = attackUItimer;
+        modeText.text = "Manual";
     }
 
     // 毎フレーム呼び出されるトコ
@@ -49,25 +52,39 @@ public class PlayerCTRL : MonoBehaviour
             cashTime -= Time.deltaTime;
         }
 
-        if (attackTiming == 0 && cashTime > 0.0f)
+        if (autoMode)
         {
-            if (gamectrl.Metronome())
+            if (attackTiming == 0 && gamectrl.Metronome())
             {
+                if (Input.GetKey("space"))
+                {
+                    attackUI.text = "PAUSE...";
+                    return;
+                }
                 isAttack = true;
                 attackTiming = defoAttackTiming;
             }
-            /*
-            if (Input.GetKey("space"))
+            else
             {
-                attackUI.text = "PAUSE...";
-                return;
+                isAttack = false;
             }
-            */
         }
         else
         {
-            isAttack = false;
+            if (attackTiming == 0 && gamectrl.Metronome())
+            {
+                if (cashTime > 0.0f)
+                {
+                    isAttack = true;
+                    attackTiming = defoAttackTiming;
+                }
+            }
+            else
+            {
+                isAttack = false;
+            }
         }
+
 
 
         atCount.text = "atCount:" + attackTiming;
@@ -106,4 +123,17 @@ public class PlayerCTRL : MonoBehaviour
         return isAttack;
     }
 
+    public void ToggleAUTO()
+    {
+        if (autoMode)
+        {
+            modeText.text = "Manual";
+            autoMode = false;
+        }
+        else
+        {
+            modeText.text = "AUTO";
+            autoMode = true;
+        }
+    }
 }
