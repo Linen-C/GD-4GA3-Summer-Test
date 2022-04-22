@@ -2577,7 +2577,7 @@ MonoBehaviour:
   attackUItimer: 1
   attackUI: {fileID: 9388142}
   defCashTime: 0.2
-  autoMode: 1
+  autoMode: 0
   modeText: {fileID: 1287194971}
 --- !u!70 &1847109799
 CapsuleCollider2D:

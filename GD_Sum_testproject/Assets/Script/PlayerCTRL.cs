@@ -34,9 +34,17 @@ public class PlayerCTRL : MonoBehaviour
     // 毎フレーム呼び出されるトコ
     void Update()
     {
+        // 移動
         body.velocity = new Vector2(
             Input.GetAxis("Horizontal") * moveSpeed, Input.GetAxis("Vertical") * moveSpeed);
         
+        // ダッシュがしたい
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            GameObject child = transform.GetChild(0).gameObject;
+            //body.velocity = new Vector2(child.transform.rotation.x * 20.0f, child.transform.rotation.y * 20.0f);
+        }
+
         if (gamectrl.Metronome() && attackTiming > 0)
         {
             attackTiming--;
